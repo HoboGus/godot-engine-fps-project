@@ -12,3 +12,5 @@ features:
  
  weapons
 
+heres the video so you can see how it looks like in its current state
+https://www.youtube.com/watch?v=hyxdJMmln8Y
