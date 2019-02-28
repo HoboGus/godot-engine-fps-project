@@ -1,5 +1,7 @@
 # godot-engine-fps-project
 
+made with godot 3.0.6, should work with 3.1 but needs some adjustments like enabling collisions with areas for weapon raycasts
+
 features:
 
  first person controller
