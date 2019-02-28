@@ -1,0 +1,42 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=2]
+
+[ext_resource path="res://hud_stuff/icons/ammo3.png" type="Texture" id=1]
+[ext_resource path="res://hud_stuff/icons/ammo1.png" type="Texture" id=2]
+[ext_resource path="res://hud_stuff/icons/ammo4.png" type="Texture" id=3]
+[ext_resource path="res://hud_stuff/icons/ammo2.png" type="Texture" id=4]
+[ext_resource path="res://hud_stuff/icons/ammo5.png" type="Texture" id=5]
+
+[resource]
+
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "rifle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "shells",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "sniper",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "smg",
+"speed": 5.0
+}, {
+"frames": [ null ],
+"loop": true,
+"name": "none",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "vog",
+"speed": 5.0
+} ]
+

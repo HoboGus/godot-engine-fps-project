@@ -1,0 +1,620 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://characters/player.gd" type="Script" id=1]
+[ext_resource path="res://characters/weedman/legs.tscn" type="PackedScene" id=2]
+[ext_resource path="res://characters/hud.gd" type="Script" id=3]
+[ext_resource path="res://fonts/Roboto-Black.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://hud_stuff/wasted.png" type="Texture" id=5]
+[ext_resource path="res://hud_stuff/cross1.png" type="Texture" id=6]
+[ext_resource path="res://hud_stuff/weedman_face.png" type="Texture" id=7]
+[ext_resource path="res://fonts/roboto1.tres" type="DynamicFont" id=8]
+[ext_resource path="res://characters/ammo_icons.tres" type="SpriteFrames" id=9]
+
+[sub_resource type="BoxShape" id=1]
+
+extents = Vector3( 1, 1, 1 )
+
+[sub_resource type="BoxShape" id=2]
+
+extents = Vector3( 1, 1.10575, 1 )
+
+[sub_resource type="DynamicFont" id=3]
+
+size = 30
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 4 )
+_sections_unfolded = [ "Font", "Font/fallback", "Settings" ]
+
+[node name="ply" type="KinematicBody" groups=[
+"chars",
+"save",
+]]
+
+pause_mode = 1
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8, 0 )
+input_ray_pickable = true
+input_capture_on_drag = false
+collision_layer = 2
+collision_mask = 2
+axis_lock_linear_x = false
+axis_lock_linear_y = false
+axis_lock_linear_z = false
+axis_lock_angular_x = false
+axis_lock_angular_y = false
+axis_lock_angular_z = false
+collision/safe_margin = 0.001
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "Transform", "collision" ]
+team = "player"
+
+[node name="step_ray" type="RayCast" parent="." index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, -1 )
+enabled = true
+exclude_parent = true
+cast_to = Vector3( 0, -1.3, 0 )
+collision_mask = 64
+_sections_unfolded = [ "Transform" ]
+
+[node name="crouch_ray" type="Area" parent="." index="1"]
+
+editor/display_folded = true
+transform = Transform( 0.9, 0, 0, 0, 1.9, 0, 0, 0, 0.9, 0, -0.329971, 0 )
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = false
+collision_layer = 1
+collision_mask = 1
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="crouch_ray" index="0"]
+
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
+shape = SubResource( 1 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="collider_crouch" type="CollisionShape" parent="." index="2"]
+
+transform = Transform( 0.5, 0, 0, 0, 0.7, 0, 0, 0, 0.5, 0, -0.252168, 0 )
+shape = SubResource( 2 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="collider" type="CollisionShape" parent="." index="3"]
+
+transform = Transform( 0.5, 0, 0, 0, 0.8, 0, 0, 0, 0.5, 0, -1.91961, 0 )
+shape = SubResource( 2 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="Rotation" type="Spatial" parent="." index="4"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="legs" parent="Rotation" index="0" instance=ExtResource( 2 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.02451, -0.368594 )
+ply = NodePath("../..")
+
+[node name="eyetrace" type="RayCast" parent="Rotation" index="1"]
+
+enabled = true
+exclude_parent = true
+cast_to = Vector3( 0, 0, -100 )
+collision_mask = 48
+_sections_unfolded = [ "Transform" ]
+
+[node name="Camera" type="Camera" parent="Rotation" index="2"]
+
+keep_aspect = 1
+cull_mask = 1048573
+environment = null
+h_offset = 0.0
+v_offset = 0.0
+doppler_tracking = 0
+projection = 0
+current = true
+fov = 70.0
+size = 1.0
+near = 0.001
+far = 100.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="ViewportContainer" type="ViewportContainer" parent="Rotation/Camera" index="0"]
+
+show_behind_parent = true
+light_mask = 1048575
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+stretch = true
+stretch_shrink = 1
+_sections_unfolded = [ "Material", "Visibility" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Viewport" type="Viewport" parent="Rotation/Camera/ViewportContainer" index="0"]
+
+arvr = false
+size = Vector2( 1024, 600 )
+own_world = false
+world = null
+transparent_bg = true
+msaa = 0
+hdr = true
+disable_3d = false
+usage = 2
+debug_draw = 0
+render_target_v_flip = false
+render_target_clear_mode = 0
+render_target_update_mode = 3
+audio_listener_enable_2d = false
+audio_listener_enable_3d = false
+physics_object_picking = false
+gui_disable_input = true
+gui_snap_controls_to_pixels = true
+shadow_atlas_size = 0
+shadow_atlas_quad_0 = 2
+shadow_atlas_quad_1 = 2
+shadow_atlas_quad_2 = 3
+shadow_atlas_quad_3 = 4
+_sections_unfolded = [ "Audio Listener", "GUI", "Render Target", "Rendering", "Shadow Atlas" ]
+
+[node name="Camera" type="Camera" parent="Rotation/Camera/ViewportContainer/Viewport" index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.40715, 0 )
+keep_aspect = 1
+cull_mask = 2
+environment = null
+h_offset = 0.0
+v_offset = 0.0
+doppler_tracking = 0
+projection = 0
+current = true
+fov = 35.0
+size = 1.0
+near = 0.05
+far = 100.0
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="hud" type="Control" parent="." index="5"]
+
+pause_mode = 2
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = ExtResource( 3 )
+_sections_unfolded = [ "Pause" ]
+
+[node name="hud_center" type="Control" parent="." index="6"]
+
+pause_mode = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Pause" ]
+
+[node name="notification" type="Label" parent="hud_center" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -482.0
+margin_top = -70.0
+margin_right = 518.0
+margin_bottom = -10.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+custom_constants/shadow_as_outline = 5
+text = "weedman"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
+
+[node name="wasted" type="Sprite" parent="hud_center" index="1"]
+
+visible = false
+texture = ExtResource( 5 )
+offset = Vector2( 16, 0 )
+_sections_unfolded = [ "Offset", "Transform", "Visibility" ]
+
+[node name="crosshair" type="Sprite" parent="hud_center" index="2"]
+
+texture = ExtResource( 6 )
+offset = Vector2( 19, 19 )
+_sections_unfolded = [ "Offset" ]
+
+[node name="hud_leftup" type="Control" parent="." index="7"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="hud_leftdown" type="Control" parent="." index="8"]
+
+anchor_left = 0.0
+anchor_top = 1.0
+anchor_right = 0.0
+anchor_bottom = 1.0
+margin_top = -40.0
+margin_right = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="back1" type="ColorRect" parent="hud_leftdown" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 10.0
+margin_top = -10.0
+margin_right = 110.0
+margin_bottom = 30.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0, 0, 0, 0.784314 )
+_sections_unfolded = [ "Mouse" ]
+
+[node name="portrait" type="Sprite" parent="hud_leftdown" index="1"]
+
+position = Vector2( 30, 10 )
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 7 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="health_txt" type="Label" parent="hud_leftdown" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 50.0
+margin_right = 110.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 8 )
+text = "Health"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="armor_hud" type="Control" parent="hud_leftdown" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="back2" type="ColorRect" parent="hud_leftdown/armor_hud" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 130.0
+margin_top = -10.0
+margin_right = 230.0
+margin_bottom = 30.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0, 0, 0, 0.784314 )
+_sections_unfolded = [ "Mouse" ]
+
+[node name="armor_txt" type="Label" parent="hud_leftdown/armor_hud" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 170.0
+margin_right = 230.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 8 )
+text = "Armor"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="hud_rigtdown" type="Control" parent="." index="9"]
+
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -40.0
+margin_top = -40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="back2" type="ColorRect" parent="hud_rigtdown" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -94.0
+margin_top = -10.0
+margin_right = 26.0
+margin_bottom = 30.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0, 0, 0, 0.784314 )
+_sections_unfolded = [ "Mouse" ]
+
+[node name="weapon_name" type="Label" parent="hud_rigtdown" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -154.0
+margin_top = -40.0
+margin_right = 16.0
+margin_bottom = -16.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 8 )
+text = "wepname"
+align = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
+
+[node name="ammo" type="Label" parent="hud_rigtdown" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -94.0
+margin_right = -14.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 8 )
+text = "10/10"
+align = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Size Flags", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
+
+[node name="ammo_icon" type="AnimatedSprite" parent="hud_rigtdown" index="3"]
+
+position = Vector2( 6, 10 )
+frames = ExtResource( 9 )
+animation = "shells"
+_sections_unfolded = [ "Transform" ]
+
+[node name="secondary_ammo_hud" type="Control" parent="hud_rigtdown" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="back3" type="ColorRect" parent="hud_rigtdown/secondary_ammo_hud" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -184.0
+margin_top = -10.0
+margin_right = -114.0
+margin_bottom = 30.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0, 0, 0, 0.784314 )
+_sections_unfolded = [ "Mouse" ]
+
+[node name="ammo_icon" type="AnimatedSprite" parent="hud_rigtdown/secondary_ammo_hud" index="1"]
+
+position = Vector2( -134, 10 )
+frames = ExtResource( 9 )
+animation = "smg"
+
+[node name="ammo2" type="Label" parent="hud_rigtdown/secondary_ammo_hud" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -184.0
+margin_right = -154.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 8 )
+text = "5"
+align = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Size Flags", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
+
+[node name="fade" type="ColorRect" parent="." index="10"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0, 0, 0, 1 )
+_sections_unfolded = [ "Mouse", "Visibility" ]
+
+[node name="levelname" type="Label" parent="fade" index="0"]
+
+self_modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -500.0
+margin_top = -30.0
+margin_right = 500.0
+margin_bottom = 30.0
+rect_pivot_offset = Vector2( 500, 0 )
+rect_clip_content = true
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+custom_constants/shadow_as_outline = 5
+text = "weed"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
+
+[node name="Timer" type="Timer" parent="." index="11"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+

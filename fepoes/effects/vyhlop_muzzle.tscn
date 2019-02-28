@@ -1,0 +1,96 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://effects/hit_effect.gd" type="Script" id=1]
+[ext_resource path="res://effects/smoke.material" type="Material" id=2]
+
+[sub_resource type="Gradient" id=1]
+
+offsets = PoolRealArray( 0, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=2]
+
+flags = 4
+gradient = SubResource( 1 )
+width = 128
+
+[sub_resource type="ParticlesMaterial" id=3]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 0
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = false
+spread = 5.0
+flatness = 0.0
+gravity = Vector3( 0, 0.5, 0 )
+initial_velocity = 4.0
+initial_velocity_random = 1.0
+angular_velocity = 0.0
+angular_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 360.0
+angle_random = 1.0
+scale = 3.0
+scale_random = 1.0
+color_ramp = SubResource( 2 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Angle", "Color", "Initial Velocity", "Scale" ]
+
+[sub_resource type="QuadMesh" id=4]
+
+material = ExtResource( 2 )
+custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
+size = Vector2( 1, 1 )
+
+[node name="vyhlop_muzzle" type="Spatial"]
+
+script = ExtResource( 1 )
+_sections_unfolded = [ "Pause" ]
+particles = NodePath("Particles")
+lifetime = 1.0
+
+[node name="Particles" type="Particles" parent="." index="0"]
+
+layers = 1
+material_override = null
+cast_shadow = 0
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+emitting = true
+amount = 3
+lifetime = 1.0
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 1.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_aabb = AABB( -4, -4, -4, 8, 8, 8 )
+local_coords = false
+draw_order = 0
+process_material = SubResource( 3 )
+draw_passes = 1
+draw_pass_1 = SubResource( 4 )
+_sections_unfolded = [ "Draw Passes", "Drawing", "Process Material" ]
+
+

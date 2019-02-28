@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/pump2.ogg-8c251205a4bde6ada5a85b27ff511b17.oggstr"
+
+[deps]
+
+source_file="res://sounds/pump2.ogg"
+dest_files=[ "res://.import/pump2.ogg-8c251205a4bde6ada5a85b27ff511b17.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

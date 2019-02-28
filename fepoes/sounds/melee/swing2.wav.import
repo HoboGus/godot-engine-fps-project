@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/swing2.wav-ad2858194bda0335cb447d3c1d0b3a5b.sample"
+
+[deps]
+
+source_file="res://sounds/melee/swing2.wav"
+dest_files=[ "res://.import/swing2.wav-ad2858194bda0335cb447d3c1d0b3a5b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,460 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://effects/spark2.png" type="Texture" id=1]
+[ext_resource path="res://effects/prtcls/flamesmol.png" type="Texture" id=2]
+[ext_resource path="res://effects/prtcls/smoke1.tres" type="Material" id=3]
+
+[sub_resource type="Gradient" id=5]
+
+offsets = PoolRealArray( 0, 0.467456, 1 )
+colors = PoolColorArray( 1, 0.539062, 0, 0, 1, 0.709921, 0, 1, 1, 0.914062, 0, 0 )
+
+[sub_resource type="GradientTexture" id=6]
+
+flags = 4
+gradient = SubResource( 5 )
+width = 128
+
+[sub_resource type="ParticlesMaterial" id=7]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 1
+emission_sphere_radius = 1.0
+flag_align_y = true
+flag_rotate_y = false
+flag_disable_z = false
+spread = 0.0
+flatness = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 0.0
+initial_velocity_random = 0.0
+angular_velocity = 0.0
+angular_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = -10.0
+radial_accel_random = 0.0
+tangential_accel = 10.0
+tangential_accel_random = 0.0
+damping = 5.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 0.0
+scale = 0.1
+scale_random = 0.0
+color_ramp = SubResource( 6 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Color", "Damping", "Flags", "Radial Accel", "Scale", "Tangential Accel" ]
+
+[sub_resource type="SpatialMaterial" id=8]
+
+render_priority = 0
+flags_transparent = true
+flags_unshaded = false
+flags_vertex_lighting = false
+flags_no_depth_test = false
+flags_use_point_size = false
+flags_world_triplanar = false
+flags_fixed_size = false
+flags_albedo_tex_force_srgb = false
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = false
+params_diffuse_mode = 0
+params_specular_mode = 0
+params_blend_mode = 0
+params_cull_mode = 2
+params_depth_draw_mode = 3
+params_line_width = 1.0
+params_point_size = 1.0
+params_billboard_mode = 0
+params_grow = false
+params_use_alpha_scissor = false
+albedo_color = Color( 1, 1, 1, 1 )
+albedo_texture = ExtResource( 1 )
+metallic = 0.0
+metallic_specular = 0.5
+metallic_texture_channel = 0
+roughness = 0.0
+roughness_texture_channel = 0
+emission_enabled = true
+emission = Color( 1, 0.494629, 0.296875, 1 )
+emission_energy = 10.0
+emission_operator = 0
+emission_on_uv2 = false
+normal_enabled = false
+rim_enabled = false
+clearcoat_enabled = false
+anisotropy_enabled = false
+ao_enabled = false
+depth_enabled = false
+subsurf_scatter_enabled = false
+transmission_enabled = false
+refraction_enabled = false
+detail_enabled = false
+uv1_scale = Vector3( 1, 1, 1 )
+uv1_offset = Vector3( 0, 0, 0 )
+uv1_triplanar = false
+uv1_triplanar_sharpness = 1.0
+uv2_scale = Vector3( 1, 1, 1 )
+uv2_offset = Vector3( 0, 0, 0 )
+uv2_triplanar = false
+uv2_triplanar_sharpness = 1.0
+proximity_fade_enable = false
+distance_fade_enable = false
+_sections_unfolded = [ "Albedo", "Emission", "Parameters" ]
+
+[sub_resource type="QuadMesh" id=9]
+
+material = SubResource( 8 )
+custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
+size = Vector2( 1, 1 )
+
+[sub_resource type="ParticlesMaterial" id=10]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 1
+emission_sphere_radius = 0.5
+flag_align_y = true
+flag_rotate_y = false
+flag_disable_z = false
+spread = 0.0
+flatness = 0.0
+gravity = Vector3( 0, 2, 0 )
+initial_velocity = 0.0
+initial_velocity_random = 0.0
+angular_velocity = 0.0
+angular_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 1.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 0.0
+scale = 0.05
+scale_random = 0.0
+color_ramp = SubResource( 6 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Color", "Emission Shape", "Flags", "Scale", "Spread", "Tangential Accel" ]
+
+[sub_resource type="Gradient" id=11]
+
+offsets = PoolRealArray( 0, 0.195266, 1 )
+colors = PoolColorArray( 1, 0, 0.9375, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=12]
+
+flags = 4
+gradient = SubResource( 11 )
+width = 128
+
+[sub_resource type="Curve" id=13]
+
+min_value = 0.0
+max_value = 1.0
+bake_resolution = 100
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -2.07203, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=14]
+
+flags = 4
+width = 128
+curve = SubResource( 13 )
+
+[sub_resource type="ParticlesMaterial" id=15]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 0
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = false
+spread = 15.0
+flatness = 0.0
+gravity = Vector3( 0, 2, 0 )
+initial_velocity = 1.0
+initial_velocity_random = 1.0
+angular_velocity = 0.0
+angular_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 0.0
+scale = 1.0
+scale_random = 0.0
+scale_curve = SubResource( 14 )
+color_ramp = SubResource( 12 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Color", "Damping", "Emission Shape", "Flags", "Initial Velocity", "Linear Accel", "Scale", "Spread" ]
+
+[sub_resource type="SpatialMaterial" id=4]
+
+render_priority = 0
+flags_transparent = true
+flags_unshaded = false
+flags_vertex_lighting = false
+flags_no_depth_test = false
+flags_use_point_size = false
+flags_world_triplanar = false
+flags_fixed_size = false
+flags_albedo_tex_force_srgb = false
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = false
+params_diffuse_mode = 0
+params_specular_mode = 0
+params_blend_mode = 0
+params_cull_mode = 2
+params_depth_draw_mode = 0
+params_line_width = 1.0
+params_point_size = 1.0
+params_billboard_mode = 3
+params_grow = false
+params_use_alpha_scissor = false
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = 0
+albedo_color = Color( 1, 1, 1, 1 )
+albedo_texture = ExtResource( 2 )
+metallic = 0.0
+metallic_specular = 0.5
+metallic_texture_channel = 0
+roughness = 0.0
+roughness_texture_channel = 0
+emission_enabled = true
+emission = Color( 1, 0.533691, 0.253906, 1 )
+emission_energy = 10.0
+emission_operator = 0
+emission_on_uv2 = false
+normal_enabled = false
+rim_enabled = false
+clearcoat_enabled = false
+anisotropy_enabled = false
+ao_enabled = false
+depth_enabled = false
+subsurf_scatter_enabled = false
+transmission_enabled = false
+refraction_enabled = false
+detail_enabled = false
+uv1_scale = Vector3( 1, 1, 1 )
+uv1_offset = Vector3( 0, 0, 0 )
+uv1_triplanar = false
+uv1_triplanar_sharpness = 1.0
+uv2_scale = Vector3( 1, 1, 1 )
+uv2_offset = Vector3( 0, 0, 0 )
+uv2_triplanar = false
+uv2_triplanar_sharpness = 1.0
+proximity_fade_enable = false
+distance_fade_enable = false
+_sections_unfolded = [ "Albedo", "Emission", "Flags", "Parameters" ]
+
+[sub_resource type="QuadMesh" id=16]
+
+material = SubResource( 4 )
+custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
+size = Vector2( 1, 1 )
+
+[sub_resource type="Gradient" id=17]
+
+offsets = PoolRealArray( 0, 0.491124, 1 )
+colors = PoolColorArray( 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=18]
+
+flags = 4
+gradient = SubResource( 17 )
+width = 128
+
+[sub_resource type="ParticlesMaterial" id=19]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 0
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = false
+spread = 45.0
+flatness = 0.0
+gravity = Vector3( 0, 1, 0 )
+initial_velocity = 0.0
+initial_velocity_random = 0.0
+angular_velocity = 15.0
+angular_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 360.0
+angle_random = 1.0
+scale = 1.0
+scale_random = 0.0
+color_ramp = SubResource( 18 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Color" ]
+
+[sub_resource type="QuadMesh" id=20]
+
+material = ExtResource( 3 )
+custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
+size = Vector2( 1, 1 )
+
+[node name="a" type="Spatial"]
+
+[node name="sparks" type="Particles" parent="." index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0975984, 0 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+emitting = true
+amount = 4
+lifetime = 1.0
+one_shot = false
+preprocess = 0.0
+speed_scale = 2.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_aabb = AABB( -4, -4, -4, 8, 8, 8 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 7 )
+draw_passes = 1
+draw_pass_1 = SubResource( 9 )
+_sections_unfolded = [ "Draw Passes", "Process Material" ]
+
+[node name="sparks2" type="Particles" parent="." index="1"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.251904, 0 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+emitting = true
+amount = 8
+lifetime = 1.0
+one_shot = false
+preprocess = 0.0
+speed_scale = 2.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_aabb = AABB( -4, -4, -4, 8, 8, 8 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 10 )
+draw_passes = 1
+draw_pass_1 = SubResource( 9 )
+_sections_unfolded = [ "Draw Passes", "Process Material", "Time" ]
+
+[node name="fire" type="Particles" parent="." index="2"]
+
+transform = Transform( 1, 0, 0, 0, 0.808211, 0.588893, 0, -0.588893, 0.808211, 0, 0, 0 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+emitting = true
+amount = 8
+lifetime = 1.0
+one_shot = false
+preprocess = 0.0
+speed_scale = 2.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_aabb = AABB( -4, -4, -4, 8, 8, 8 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 15 )
+draw_passes = 1
+draw_pass_1 = SubResource( 16 )
+_sections_unfolded = [ "Draw Passes", "Process Material" ]
+
+[node name="smok" type="Particles" parent="." index="3"]
+
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+emitting = true
+amount = 6
+lifetime = 2.0
+one_shot = false
+preprocess = 0.0
+speed_scale = 0.7
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_aabb = AABB( -4, -4, -4, 8, 8, 8 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 19 )
+draw_passes = 1
+draw_pass_1 = SubResource( 20 )
+_sections_unfolded = [ "Draw Passes", "Process Material", "Time" ]
+
+

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/zatvor.wav-ae65032632a44182c4948f4678388638.sample"
+
+[deps]
+
+source_file="res://sounds/zatvor.wav"
+dest_files=[ "res://.import/zatvor.wav-ae65032632a44182c4948f4678388638.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/bong_water.wav-bcd7f8544c614b46741afd6a2feeda4c.sample"
+
+[deps]
+
+source_file="res://sounds/bong/bong_water.wav"
+dest_files=[ "res://.import/bong_water.wav-bcd7f8544c614b46741afd6a2feeda4c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

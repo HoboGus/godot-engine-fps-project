@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/clipout.wav-6447ea4efb00612aab51f4b1ba90aa14.sample"
+
+[deps]
+
+source_file="res://sounds/pp/clipout.wav"
+dest_files=[ "res://.import/clipout.wav-6447ea4efb00612aab51f4b1ba90aa14.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

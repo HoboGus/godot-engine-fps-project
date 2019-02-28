@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/cockk2.ogg-0331839f7d3eda7f47d1fb26eb85aded.oggstr"
+
+[deps]
+
+source_file="res://sounds/cockk2.ogg"
+dest_files=[ "res://.import/cockk2.ogg-0331839f7d3eda7f47d1fb26eb85aded.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

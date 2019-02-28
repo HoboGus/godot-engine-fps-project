@@ -1,0 +1,64 @@
+[gd_resource type="ParticlesMaterial" load_steps=5 format=2]
+
+[sub_resource type="Gradient" id=1]
+
+offsets = PoolRealArray( 0, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=2]
+
+flags = 4
+gradient = SubResource( 1 )
+width = 128
+
+[sub_resource type="Curve" id=3]
+
+min_value = 0.0
+max_value = 5.0
+bake_resolution = 100
+_data = [ Vector2( 0.0591016, 0 ), 0.0, 1.51272, 0, 0, Vector2( 1, 5 ), 14.8186, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+
+flags = 4
+width = 128
+curve = SubResource( 3 )
+
+[resource]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 0
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = false
+spread = 2.0
+flatness = 0.0
+gravity = Vector3( 0, 0.02, 0 )
+initial_velocity = 0.5
+initial_velocity_random = 0.5
+angular_velocity = 0.0
+angular_velocity_random = 0.0
+linear_accel = 0.1
+linear_accel_random = 1.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 369.0
+angle_random = 1.0
+scale = 3.0
+scale_random = 0.0
+scale_curve = SubResource( 4 )
+color_ramp = SubResource( 2 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Color", "Gravity", "Linear Accel", "Scale" ]
+
