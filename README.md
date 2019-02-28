@@ -8,5 +8,7 @@ features:
  
  dismemberment. the system is quite advanced, it isnt used at full potential.
  
+ save system with quicksaves! probably could be improved
+ 
  weapons
 
