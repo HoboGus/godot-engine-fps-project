@@ -4,7 +4,7 @@ made with godot 3.0.6, should work with 3.1 but needs some adjustments like enab
 
 feel free to use it as the license is MIT tho i dont think that using these 3d models is a good idea
 
-maybe this could be made into a first person shooter template? needs some work tho and some stuff mush be removed entirely
+maybe this could be made into a first person shooter template? needs some work tho and some stuff must be removed entirely
 
 features:
 
@@ -16,7 +16,7 @@ features:
  
  save system with quicksaves! probably could be improved
  
- weapons - deploy/holster aniamtions, reloading, alternative fire modes, shotguns, also there is an example of sniper rfle (with scope), rifle with an underbarrel grenade launcher and akimbo guns
+ weapons - deploy/holster animations, reloading, alternative fire modes, shotguns, also there is an example of sniper rfle (with scope), rifle with an underbarrel grenade launcher and akimbo guns
  
  the controls are 
   W A S D to move,
