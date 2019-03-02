@@ -21,7 +21,7 @@ features:
  the controls are 
   W A S D to move,
   SPACE to jump
-  CNTRL to crouch
+  CTRL to crouch
   Q to kick
   E to use but theres not so many thing you actually can use. You can pick objects up and flush toilets on the first level
   number keys to select weapons, some weapons can be stored in the same slot
