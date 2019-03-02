@@ -20,10 +20,10 @@ features:
  
  the controls are 
   W A S D to move,
-  SPACE to jump
-  CTRL to crouch
-  Q to kick
-  E to use but theres not so many thing you actually can use. You can pick objects up and flush toilets on the first level
+  SPACE to jump,
+  CTRL to crouch,
+  Q to kick,
+  E to use but theres not so many thing you actually can use. You can pick objects up and flush toilets on the first level,
   number keys to select weapons, some weapons can be stored in the same slot
 
 heres the video so you can see how it looks like in its current state
