@@ -4,8 +4,6 @@ made with godot 3.0.6, should work with 3.1 but needs some adjustments like enab
 
 feel free to use it as the license is MIT tho i dont think that using these 3d models is a good idea
 
-maybe this could be made into a first person shooter template? needs some work tho and some stuff must be removed entirely
-
 features:
 
  first person controller
